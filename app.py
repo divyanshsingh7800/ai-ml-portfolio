@@ -17,135 +17,206 @@ st.set_page_config(
 # CUSTOM CSS
 # =========================================================
 
-st.markdown("""
-<style>
+st.markdown(
+    """
+    <style>
 
-    /* Main Background */
+    /* =====================================================
+       GLOBAL
+       ===================================================== */
+
     .stApp {
-        background-color: #0b0f19;
-        color: white;
+        background: #080d18;
+        color: #f8fafc;
     }
 
-    /* Hide Streamlit Default Elements */
-    #MainMenu {
-        visibility: hidden;
-    }
-
-    footer {
-        visibility: hidden;
-    }
-
-    header {
-        visibility: hidden;
-    }
-
-    /* Main Container */
-    .block-container {
+    .main .block-container {
         padding-top: 2rem;
         padding-bottom: 3rem;
-        max-width: 1200px;
+        max-width: 1250px;
     }
 
-    /* Hero */
-    .hero-title {
-        font-size: 58px;
-        font-weight: 800;
-        margin-bottom: 5px;
-    }
-
-    .hero-subtitle {
-        font-size: 25px;
-        color: #7dd3fc;
-        font-weight: 600;
-    }
-
-    .hero-description {
-        font-size: 18px;
-        color: #b8c1d1;
+    /* Normal text */
+    p {
+        color: #cbd5e1;
         line-height: 1.7;
     }
 
-    /* Section Heading */
-    .section-title {
-        font-size: 34px;
-        font-weight: 700;
-        margin-top: 50px;
-        margin-bottom: 25px;
+    /* Headings */
+    h1 {
+        color: #f8fafc !important;
     }
 
-    /* Project Cards */
-    .project-card {
-        background: #111827;
-        border: 1px solid #263244;
-        border-radius: 15px;
-        padding: 25px;
-        min-height: 250px;
-        transition: 0.3s;
+    h2 {
+        color: #f1f5f9 !important;
+        margin-top: 1.8rem;
     }
 
-    .project-card:hover {
-        border-color: #38bdf8;
-        transform: translateY(-4px);
+    h3 {
+        color: #e2e8f0 !important;
     }
 
-    .project-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: white;
+
+    /* =====================================================
+       SIDEBAR
+       ===================================================== */
+
+   section[data-testid="stSidebar"] {
+    background: #0d1422;
+}
+    section[data-testid="stSidebar"] * {
+        color: #e2e8f0;
     }
 
-    .project-description {
-        color: #b8c1d1;
-        line-height: 1.6;
-    }
 
-    .tech {
-        color: #7dd3fc;
-        font-size: 14px;
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    .stLinkButton a,
+    .stButton button,
+    .stDownloadButton button {
+
+        background: #111c2e !important;
+        color: #f8fafc !important;
+
+        border: 1px solid #334155 !important;
+        border-radius: 10px !important;
+
+        min-height: 48px;
+
         font-weight: 600;
+
+        transition: all 0.2s ease;
     }
 
-    /* Skill Cards */
-    .skill-card {
-        background: #111827;
-        border: 1px solid #263244;
-        border-radius: 12px;
+    .stLinkButton a:hover,
+    .stButton button:hover,
+    .stDownloadButton button:hover {
+
+        background: #172943 !important;
+        border-color: #38bdf8 !important;
+
+        color: #ffffff !important;
+
+        transform: translateY(-2px);
+    }
+
+
+    /* =====================================================
+       METRIC CARDS
+       ===================================================== */
+
+    div[data-testid="stMetric"] {
+
+        background: linear-gradient(
+            145deg,
+            #111c2e,
+            #0d1626
+        );
+
+        border: 1px solid #24344d;
+
+        border-radius: 14px;
+
         padding: 20px;
-        margin-bottom: 15px;
+
+        min-height: 125px;
+
+        box-shadow:
+            0 8px 25px rgba(0,0,0,0.20);
     }
 
-    .skill-title {
-        font-size: 20px;
-        font-weight: 700;
-        color: #7dd3fc;
+    div[data-testid="stMetric"] label {
+
+        color: #94a3b8 !important;
+
+        font-size: 14px !important;
+
+        font-weight: 600 !important;
     }
 
-    .skill-list {
-        color: #cbd5e1;
-        line-height: 1.8;
+    div[data-testid="stMetric"] div[data-testid="stMetricValue"] {
+
+        color: #f8fafc !important;
+
+        font-size: 28px !important;
+
+        font-weight: 700 !important;
     }
 
-    /* Stats */
-    .stat-card {
-        background: #111827;
-        border: 1px solid #263244;
+
+    /* =====================================================
+       INFO / SUCCESS BOX
+       ===================================================== */
+
+    div[data-testid="stAlert"] {
+
         border-radius: 12px;
-        padding: 20px;
-        text-align: center;
+        border: 1px solid #334155;
     }
 
-    .stat-number {
-        font-size: 32px;
-        font-weight: 800;
+
+    /* =====================================================
+       CODE BLOCK
+       ===================================================== */
+
+    pre {
+
+        background: #0d1422 !important;
+
+        border: 1px solid #1e293b !important;
+
+        border-radius: 12px !important;
+    }
+
+
+    /* =====================================================
+       DIVIDERS
+       ===================================================== */
+
+    hr {
+
+        border-color: #1e293b !important;
+
+        margin: 2rem 0 !important;
+    }
+
+
+    /* =====================================================
+       LINKS
+       ===================================================== */
+
+    a {
         color: #38bdf8;
     }
 
-    .stat-label {
-        color: #94a3b8;
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 768px) {
+
+        .main .block-container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        h1 {
+            font-size: 36px !important;
+        }
+
+        h2 {
+            font-size: 26px !important;
+        }
+
     }
 
-</style>
-""", unsafe_allow_html=True)
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 # =========================================================
@@ -229,30 +300,27 @@ if page == "🏠 Home":
             Divyansh Singh
         </h1>
 
-        <h2 style="
-            color: #7dd3fc;
-            font-size: 28px;
-            font-weight: 600;
-            margin: 0 0 18px 0;
-        ">
-            AI/ML Developer
-        </h2>
+       <h2 style="
+        color:#38bdf8;
+        font-size:28px;
+        margin-top:5px;
+    ">
+        AI/ML Engineer
+    </h2>
 
         <p style="
-            color: #cbd5e1;
-            font-size: 18px;
-            max-width: 780px;
-            margin: 0 auto;
-            line-height: 1.7;
-        ">
-            Building intelligent solutions with
-            <strong>Machine Learning</strong>,
-            <strong>Deep Learning</strong>,
-            <strong>NLP</strong>,
-            <strong>Large Language Models</strong>
-            and
-            <strong>Retrieval Augmented Generation</strong>.
-        </p>
+        color:#cbd5e1;
+        font-size:18px;
+        max-width:850px;
+        margin:auto;
+        line-height:1.8;
+    ">
+        Building intelligent applications with
+        <span style="color:#ffffff; font-weight:600;">
+        Machine Learning, Deep Learning, NLP,
+        Explainable AI, LLMs and RAG.
+        </span>
+    </p>
 
     </div>
     """)
@@ -313,9 +381,11 @@ if page == "🏠 Home":
     st.markdown("---")
 
 
-    # -----------------------------------------------------
-    # QUICK STATS
-    # -----------------------------------------------------
+ 
+
+# =========================================================
+# AT A GLANCE
+# =========================================================
 
     st.markdown("## ⚡ At a Glance")
 
@@ -323,30 +393,145 @@ if page == "🏠 Home":
 
     with col1:
 
-        st.metric(
-            "Projects",
-            "6+"
+        st.markdown(
+            """
+            <div style="
+                background:linear-gradient(145deg,#111c2e,#0d1626);
+                border:1px solid #24344d;
+                border-radius:14px;
+                padding:22px;
+                text-align:center;
+                min-height:120px;
+            ">
+
+            <div style="
+                color:#38bdf8;
+                font-size:14px;
+                font-weight:600;
+            ">
+            PROJECTS
+            </div>
+
+            <div style="
+                color:#ffffff;
+                font-size:32px;
+                font-weight:700;
+                margin-top:10px;
+            ">
+            6+
+            </div>
+
+            </div>
+            """,
+            unsafe_allow_html=True
         )
+
 
     with col2:
 
-        st.metric(
-            "Primary Language",
-            "Python"
+        st.markdown(
+            """
+            <div style="
+                background:linear-gradient(145deg,#111c2e,#0d1626);
+                border:1px solid #24344d;
+                border-radius:14px;
+                padding:22px;
+                text-align:center;
+                min-height:120px;
+            ">
+
+            <div style="
+                color:#38bdf8;
+                font-size:14px;
+                font-weight:600;
+            ">
+            PRIMARY LANGUAGE
+            </div>
+
+            <div style="
+                color:#ffffff;
+                font-size:27px;
+                font-weight:700;
+                margin-top:12px;
+            ">
+            Python
+            </div>
+
+            </div>
+            """,
+            unsafe_allow_html=True
         )
+
 
     with col3:
 
-        st.metric(
-            "Focus",
-            "AI / ML"
+        st.markdown(
+            """
+            <div style="
+                background:linear-gradient(145deg,#111c2e,#0d1626);
+                border:1px solid #24344d;
+                border-radius:14px;
+                padding:22px;
+                text-align:center;
+                min-height:120px;
+            ">
+
+            <div style="
+                color:#38bdf8;
+                font-size:14px;
+                font-weight:600;
+            ">
+            FOCUS
+            </div>
+
+            <div style="
+                color:#ffffff;
+                font-size:27px;
+                font-weight:700;
+                margin-top:12px;
+            ">
+            AI / ML
+            </div>
+
+            </div>
+            """,
+            unsafe_allow_html=True
         )
+
 
     with col4:
 
-        st.metric(
-            "GenAI",
-            "RAG + LLM"
+        st.markdown(
+            """
+            <div style="
+                background:linear-gradient(145deg,#111c2e,#0d1626);
+                border:1px solid #24344d;
+                border-radius:14px;
+                padding:22px;
+                text-align:center;
+                min-height:120px;
+            ">
+
+            <div style="
+                color:#38bdf8;
+                font-size:14px;
+                font-weight:600;
+            ">
+            GENERATIVE AI
+            </div>
+
+            <div style="
+                color:#ffffff;
+                font-size:25px;
+                font-weight:700;
+                margin-top:12px;
+            ">
+            RAG + LLM
+            </div>
+
+            </div>
+            """,
+            unsafe_allow_html=True
         )
 
 
